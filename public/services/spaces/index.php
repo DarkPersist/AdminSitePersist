@@ -1,3 +1,8 @@
+<?php
+    require '../../server/connection/conexion.php';
+    require '../../server/security/seguridad.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

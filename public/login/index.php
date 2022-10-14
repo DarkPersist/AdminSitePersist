@@ -1,39 +1,3 @@
-<?php
-    include '../../server/connection/conexion.php';
-    date_default_timezone_set("America/Bogota");
-    /*Sweet Alert -> Parametros */
-    $title='';
-    $text = '';
-    $html='';
-    $icon = '';
-    $img='';
-    $active=true;
-
-    session_start();
-    if (isset($_SESSION['id'])) {
-        $GLOBALS['icon'] = 'success';
-        $GLOBALS['title'] = 'Éxito';
-        $GLOBALS['text'] = 'Ya has inciado sesión';
-        $active=false;
-    }
-    
-    /* Accion Solicitada que llama funcion */
-    if (!empty($_POST['action']) && $active==true) {
-        if ($_POST['action'] == 'signin') {
-            signin($conex);
-        } elseif ($_POST['action'] == 'signup') {
-            signup($conex);
-        }
-    }
-    
-    function signup($conexion){
-        include '../../controller/sign_up.php';
-    }
-    function signin($conexion){
-        include '../../controller/sign_in.php';
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 

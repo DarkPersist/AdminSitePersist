@@ -1,7 +1,7 @@
 # AdminSitePersist
 
 ## Tecnologias Implementadas
-- apache (2.4.54) |[<img src="https://es.wikipedia.org/wiki/PHP#/media/Archivo:PHP-logo.svg" width="50px;">]|
+- apache (2.4.54) <img src="https://es.wikipedia.org/wiki/PHP#/media/Archivo:PHP-logo.svg" width="50px;">
 - php (8.1.11)
 - composer (2.2.18)
 - nginx (1.22.0)

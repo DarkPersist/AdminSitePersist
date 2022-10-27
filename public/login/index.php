@@ -54,8 +54,9 @@
                 </div>
                 <div class="field space">
                     <span class="fa fa-lock"></span>
-                    <input type="password" class="pass-key" required placeholder="Contraseña"/>
-                    <span class="show">Mostrar</span>
+                    <input type="password" class="pass-key" id="pass-key" name="pass-key" onblur="verifyPassword()" required placeholder="Contraseña"/>
+                    <i id="success" class="fas fa-check-circle"></i><i id="error" class="fas fa-exclamation-circle"></i><i id="warning" class="fas fa-exclamation-triangle"></i>
+                    <span class="show"></span>
                 </div>
                 <div class="pass">
                     <a href="#">¿Olvidaste la contraseña?</a>

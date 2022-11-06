@@ -27,7 +27,7 @@
 
         header a {
             position: relative;
-            font-size: 2em;
+            font-size: 1em;
             color: #fff;
             text-transform: uppercase;
             font-weight: 700;

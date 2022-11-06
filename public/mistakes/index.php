@@ -34,6 +34,10 @@
             letter-spacing: 2px;
             text-decoration: none;
         }
+        
+        header a:hover{
+            color: #5A17E9;
+        }
 
         .banner {
             position: relative;

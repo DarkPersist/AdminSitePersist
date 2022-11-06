@@ -2,23 +2,12 @@
 <html lang="en">
 
 <head>
-    <!--Meta Data-->
-    <meta charset="utf-8">
-    <title>SitePersist</title>
-    <meta charset="UTF-8">
-    <meta name="author" content="Darkpersist(Mateo & Sebastian)">
-    <meta name="description" content="Bookings System for Reservation spaces and electronics devices">
-    <meta name="keywords" content="Bookings, SitePersist, Site">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/resources/assets/favicon.ico">
-    <!--Import-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous">
+    <?php include "../resources/assets/meta.html" ?>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
         }
 
         body {

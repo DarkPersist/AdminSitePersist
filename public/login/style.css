@@ -9,7 +9,7 @@
 }
 
 .bg_img{
-    background: url(./imgsLogIn/BGiush.jpeg);
+    background: url(/resources/assets/img/BGiush.jpeg);
     height: 100vh;
     background-size: cover;
     background-position: center;

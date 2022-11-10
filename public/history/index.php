@@ -21,13 +21,19 @@ include '../../server/security/seguridad.php';
                     <div class="row">
                         <?php foreach (mysqli_query($conx, "SELECT * FROM acciones") as $data) : ?>
                             <div class="col-md-4 d-flex justify-content-center align-items-center mb-5">
-                                <div class="card" style="width: 18rem; background-color: #202020;">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><?php echo $data['action']?></h5>
-                                        <p class="card-text">Descripcion<?php echo $data['description']?></p>
-                                        <p class="card-text">Fecha<?php echo $data['date_action']?></p>
-                                        <p class="card-text">Ip<?php echo $data['ip']?></p>
-                                        <a href="#" class="btn btn-primary">Administrador:<?php echo$data['administrator']?></a>
+                                <div class="card text-bg-dark mb-3" style="max-width: 540px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4 p-3">
+                                            <img src="<?php echo $data['img']?>" class="img-fluid rounded-start" alt="...">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><?php echo $data['action']?></h5>
+                                                <p class="card-text"><?php echo $data['description']?></p>
+                                                <p class="card-text"><small class="text-muted"><?php echo $data['date_action']?></small></p>
+                                                <p class="card-text"><small class="text-muted"><?php echo $data['ip']?></small></p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -7,15 +7,15 @@ include '../../server/security/seguridad.php';
 <html lang="en">
 
 <head>
-    <?php include "../../resources/assets/meta.html" ?>
+    <?php include "../resources/assets/meta.html" ?>
 </head>
 
 <body>
-    <?php include "../../resources/partials/header--default.html" ?>
+    <?php include "../resources/partials/header--default.html" ?>
     <div class="container-fluid text-light" style="background-color: #0D0D0D;">
         <div class="grid text-center">
             <div class="mb-5">
-                <h1>Equipos</h1>
+                <h1>Acciones</h1>
             </div>
             <div>
                 <div class="row">
@@ -24,7 +24,7 @@ include '../../server/security/seguridad.php';
             </div>
         </div>
     </div>
-    <?php include "../../resources/partials/footer--default.html" ?>
+    <?php include "../resources/partials/footer--default.html" ?>
 </html>
 <?php else : ?>
 

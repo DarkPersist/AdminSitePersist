@@ -59,7 +59,7 @@ $table=$_GET['table'];
                             }
                             echo "<td>" . $data[$statement["Field"]] . "</td>";
                         }
-                        echo '<td><a href="/functions/modify.php?id='.$data['id'].'"><button type="button" class="button4">Modificar</a><a href="/functions/delete.php??id='.$data['id'].'"><button type="button" class="button2">Eliminar</a></td>';
+                        echo '<td><a href="/functions/modify.php?id='.$data['id'].'&table='.$table.'"><button type="button" class="button4">Modificar</a><a href="/functions/delete.php?id='.$data['id'].'&table='.$table.'"><button type="button" class="button2">Eliminar</a></td>';
                         echo "</tr>";
                     }
                     mysqli_close($conx); ?>

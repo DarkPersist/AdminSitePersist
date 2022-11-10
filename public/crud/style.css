@@ -459,6 +459,7 @@ h6 {
 section {
     padding: 60px 0;
     overflow: hidden;
+    background: #0D0D0D;
 }
 
 .section-bg {
@@ -524,15 +525,16 @@ section {
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
     font-family: "Open Sans", sans-serif;
+    text-decoration: none;
 }
 
 
 .button4 {
-    border-color: rgba(73, 108, 249, 1);
+    border-color: #ab90e6;
     padding: 3px 10px;
     cursor: pointer;
     outline: none;
-    background: rgba(140, 165, 227, 1);
+    background: #440BBF;
     color: white;
     font-weight: 600;
     font-size: 12px;
@@ -542,14 +544,15 @@ section {
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
     font-family: "Open Sans", sans-serif;
+    text-decoration: none;
 }
 
 .button2 {
-    border-color: rgba(77, 68, 238, 1);
+    border-color: #440BBF;
     padding: 3px 10px;
     cursor: pointer;
     outline: none;
-    background: rgba(232, 165, 95, 1);
+    background: #ab90e6;
     color: white;
     font-weight: 600;
     font-size: 12px;
@@ -593,7 +596,7 @@ table {
 }
 
 .content-table thead tr {
-    background-color: #32088C;
+    background: #5A13F2;
     color: #ffffff;
     font-weight: bold;
 }
@@ -622,7 +625,7 @@ table {
 
 .content-table tbody tr:hover {
     font-weight: blod;
-    color: #0489B1;
+    color: #32088C;
 }
 
 
@@ -654,7 +657,7 @@ and also iPads specifically.
         position: absolute;
         top: -9999px;
         left: -9999px;
-        background-color: #32088C;
+        background: #32088C;
         color: #ffffff;
         font-weight: bold;
         margin: auto;

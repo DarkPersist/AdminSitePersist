@@ -24,7 +24,7 @@ $table=$_GET['table'];
                             <h2><?php echo $user['name']; ?>, estas son las solicitudes de <?php echo $table; ?> que han hecho.</h2>
                             <center>
                     </div>
-                    <table class="table table" style="background:rgba(0,0,0,0); border:0px solid">
+                    <table class="table table" style="background:rgba(0,0,0,0); border:none">
                         <td>
                             <a href="/functions/xls.php?table=<?php echo $table; ?>"><button type='button' class="btn btn-success">xls</button></a>
                             <a href="/functions/csv.php?table=<?php echo $table; ?>"><button type='button' class="btn btn-success">csv</button></a>
@@ -44,6 +44,7 @@ $table=$_GET['table'];
                             echo "<th>" . $statement["Field"] . "</th>";
                         }
                         ?>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -54,6 +55,7 @@ $table=$_GET['table'];
                         foreach (mysqli_query($conx, "DESCRIBE " . $table) as $statement) {
                             echo "<td>" . $data[$statement["Field"]] . "</td>";
                         }
+                        echo '<td><a href="modificar_sproductosAdmin.php?id='.$data['id'].'"><button type="button" class="button4">Modificar</a><a href="eliminar_sproductoAdmin.php?id='.$data['id'].'"><button type="button" class="button2">Eliminar</a></td>';
                         echo "</tr>";
                     }
                     mysqli_close($conx); ?>

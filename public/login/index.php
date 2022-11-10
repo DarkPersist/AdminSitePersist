@@ -1,3 +1,42 @@
+<?php
+if (!empty($_POST['email']) && !empty($_POST['password'])) {
+    if ($datos = mysqli_query($conexion, 'SELECT u.id as id,u.mail as email, s.password as password FROM usuarios u inner join seguridad s on u.id=s.user where u.mail="' . $_POST['email'] . '"')) {
+        $usuarios = mysqli_fetch_array($datos); /*Datos almacenado en Array*/
+        if (is_array($usuarios)) {
+            if ($_POST['email'] == $usuarios['email']) {
+                if (password_verify($_POST['password'], $usuarios['password'])) {
+                    $_SESSION['id'] = $usuarios['id']; /*Pasar datos a el sistema de seguridad*/
+                    $GLOBALS['icon'] = 'success';
+                    $GLOBALS['title'] = 'Éxito';
+                    $GLOBALS['text'] = 'Se ha iniciado sesión correctamente';
+                    dataentry($conexion, $usuarios['id']);
+                } else {
+                    $GLOBALS['icon'] = 'error';
+                    $GLOBALS['title'] = 'Error';
+                    $GLOBALS['text'] = 'La contraseña es incorrecta';
+                    attempts($conexion, $usuarios['id']);
+                }
+            } else {
+                $GLOBALS['icon'] = 'error';
+                $GLOBALS['title'] = 'Error';
+                $GLOBALS['text'] = 'El correo no coíncide con una cuenta';
+            }
+        } else {
+            $GLOBALS['icon'] = 'error';
+            $GLOBALS['title'] = 'Error';
+            $GLOBALS['text'] = 'El correo no existe';
+        }
+    } else {
+        $GLOBALS['icon'] = 'error';
+        $GLOBALS['title'] = 'Error';
+        $GLOBALS['text'] = 'No se pudo verificar si el correo existe';
+    }
+} else {
+    $GLOBALS['icon'] = 'error';
+    $GLOBALS['title'] = 'Error';
+    $GLOBALS['text'] = 'Faltan datos para Iniciar sesión';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,30 +57,31 @@
 </head>
 
 <body>
-    <?php if (!empty($icon) || !empty($title) || !empty($text)): ?>
+    <?php if (!empty($icon) || !empty($title) || !empty($text)) : ?>
+        <script type="text/javascript">
+            Sweetalert2.fire({
+                icon: "<?php echo ($icon) ?>",
+                title: "<?php echo ($title) ?>",
+                text: "<?php echo ($text) ?>",
+                html: "<?php echo ($html) ?>",
+                imageUrl: "<?php echo ($img) ?>",
+                timer: "5000",
+                timerProgressBar: "True",
+                allowOutsideClick: "True",
+                allowEscapeKey: "True",
+                confirmButtonText: "Aceptar",
+                confirmButtonColor: "#1A5276",
+            });
+        </script>
+        <?php if ($icon == "success") : ?>
             <script type="text/javascript">
-                Sweetalert2.fire({
-                    icon:"<?php echo($icon) ?>", 
-                    title:"<?php echo($title)?>", 
-                    text:"<?php echo($text)?>",
-                    html:"<?php echo($html)?>",
-                    imageUrl:"<?php echo($img)?>",
-                    timer:"5000",
-                    timerProgressBar:"True",
-                    allowOutsideClick:"True",
-                    allowEscapeKey:"True",
-                    confirmButtonText:"Aceptar",
-                    confirmButtonColor:"#1A5276",
-                });
+                setTimeout(alertFunc, 6000);
+
+                function alertFunc() {
+                    location.replace("../main");
+                }
             </script>
-                <?php if ($icon=="success"): ?>
-                    <script type="text/javascript">
-                        setTimeout(alertFunc, 6000);
-                        function alertFunc() {
-                            location.replace("../main");
-                        }
-                    </script>
-                <?php endif; ?>
+        <?php endif; ?>
     <?php endif; ?>
     <!---Login-->
     <div class="bg_img">
@@ -50,11 +90,11 @@
             <form action="#">
                 <div class="field">
                     <span class="fa fa-user"></span>
-                        <input type="text" required placeholder="Ingrese usuario" />
+                    <input type="text" name="email" required placeholder="Ingrese su correo" />
                 </div>
                 <div class="field space">
                     <span class="fa fa-lock"></span>
-                    <input type="password" class="pass-key" id="pass-key" name="pass-key" onblur="verifyPassword()" required placeholder="Contraseña"/>
+                    <input type="password" class="pass-key" id="pass-key" name="password" onblur="verifyPassword()" required placeholder="Contraseña" />
                     <i id="success" class="fas fa-check-circle"></i><i id="error" class="fas fa-exclamation-circle"></i><i id="warning" class="fas fa-exclamation-triangle"></i>
                     <span class="show"></span>
                 </div>
@@ -68,7 +108,6 @@
         </div>
     </div>
     <script>
-        <?php include "main.js"; ?>
     </script>
 </body>
 

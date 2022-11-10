@@ -20,8 +20,8 @@ include '../../server/security/seguridad.php';
                 <div>
                     <div class="row">
                         <?php foreach (mysqli_query($conx, "SELECT * FROM acciones") as $data) : ?>
-                            <div class="col-sm-6">
-                                <div class="card">
+                            <div class="col-md-4 d-flex justify-content-center align-items-center mb-5">
+                                <div class="card" style="width: 18rem; background-color: #202020;">
                                     <div class="card-body">
                                         <h5 class="card-title"><?php echo $data['action']?></h5>
                                         <p class="card-text">Descripcion<?php echo $data['description']?></p>

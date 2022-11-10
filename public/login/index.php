@@ -1,5 +1,12 @@
 <?php
 include '../../server/connection/conexion.php';
+
+$title='';
+$text = '';
+$html='';
+$icon = '';
+$img='';
+    
 session_start();
 if (isset($_SESSION['id'])) {
     $GLOBALS['icon'] = 'success';
@@ -22,7 +29,6 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
                     $GLOBALS['icon'] = 'error';
                     $GLOBALS['title'] = 'Error';
                     $GLOBALS['text'] = 'La contraseña es incorrecta';
-                    attempts($conexion, $usuarios['id']);
                 }
             } else {
                 $GLOBALS['icon'] = 'error';
@@ -55,12 +61,13 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/resources/assets/favicon.ico">
     <!--Import-->
-    <script src="https://kit.fontawesome.com/5780471e07.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <script src="https://kit.fontawesome.com/5780471e07.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php if (!empty($icon) || !empty($title) || !empty($text)) : ?>
         <script type="text/javascript">
             Sweetalert2.fire({
@@ -111,8 +118,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
             </form>
         </div>
     </div>
-    <script>
-    </script>
+    
 </body>
 
 </html>

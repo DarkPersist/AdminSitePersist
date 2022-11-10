@@ -24,11 +24,11 @@ $table=$_GET['table'];
                             <h2><?php echo $user['name']; ?>, estas son las solicitudes de <?php echo $table; ?> que han hecho.</h2>
                             <center>
                     </div>
-                    <table>
+                    <table class="table table" style="background:rgba(0,0,0,0); border:0px solid">
                         <td>
-                            <a href="xls.php?table=<?php echo $table; ?>"><button type='button' class="btn btn-success">xls</button></a>
-                            <a href="csv.php?table=<?php echo $table; ?>"><button type='button' class="btn btn-success">csv</button></a>
-                            <a href="txt.php?table=<?php echo $table; ?>"><button type='button' class="btn btn-success">txt</button></a>
+                            <a href="/functions/xls.php?table=<?php echo $table; ?>"><button type='button' class="btn btn-success">xls</button></a>
+                            <a href="/functions/csv.php?table=<?php echo $table; ?>"><button type='button' class="btn btn-success">csv</button></a>
+                            <a href="/functions/txt.php?table=<?php echo $table; ?>"><button type='button' class="btn btn-success">txt</button></a>
                         </td>
                     </table>
                 </div>

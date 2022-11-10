@@ -54,7 +54,7 @@ $table=$_GET['table'];
                         echo "<tr>";
                         foreach (mysqli_query($conx, "DESCRIBE " . $table) as $statement) {
                             if($statement["Field"] =='img'){
-                                echo "<td><img src='" . $data[$statement["Field"]] . "'></td>";
+                                echo "<td><img src='" . $data[$statement["Field"]] . "' style='width: 20%;'></td>";
                                 continue;
                             }
                             echo "<td>" . $data[$statement["Field"]] . "</td>";

@@ -24,8 +24,10 @@ include '../../server/security/seguridad.php';
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title"><?php echo $data['action']?></h5>
-                                        <p class="card-text"><?php echo $data['description']?>.</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        <p class="card-text">Descripcion<?php echo $data['description']?></p>
+                                        <p class="card-text">Fecha<?php echo $data['date_action']?></p>
+                                        <p class="card-text">Ip<?php echo $data['ip']?></p>
+                                        <a href="#" class="btn btn-primary">Administrador:<?php echo$data['administrator']?></a>
                                     </div>
                                 </div>
                             </div>

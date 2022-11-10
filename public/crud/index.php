@@ -53,6 +53,10 @@ $table=$_GET['table'];
                     foreach (mysqli_query($conx, "SELECT * FROM " . $table) as $data) {
                         echo "<tr>";
                         foreach (mysqli_query($conx, "DESCRIBE " . $table) as $statement) {
+                            if($statement["Field"] =='img'){
+                                echo "<td><img src='" . $data[$statement["Field"]] . "'></td>";
+                                continue;
+                            }
                             echo "<td>" . $data[$statement["Field"]] . "</td>";
                         }
                         echo '<td><a href="modificar_sproductosAdmin.php?id='.$data['id'].'"><button type="button" class="button4">Modificar</a><a href="eliminar_sproductoAdmin.php?id='.$data['id'].'"><button type="button" class="button2">Eliminar</a></td>';

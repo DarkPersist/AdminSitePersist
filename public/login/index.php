@@ -39,10 +39,6 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
         $GLOBALS['title'] = 'Error';
         $GLOBALS['text'] = 'No se pudo verificar si el correo existe';
     }
-} else {
-    $GLOBALS['icon'] = 'error';
-    $GLOBALS['title'] = 'Error';
-    $GLOBALS['text'] = 'Faltan datos para Iniciar sesión';
 }
 ?>
 <!DOCTYPE html>

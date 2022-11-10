@@ -1,3 +1,8 @@
+<?php
+include '../../server/connection/conexion.php';
+include '../../server/security/seguridad.php';
+?>
+<?php if (!empty($user)) : ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,3 +26,22 @@
     </div>
     <?php include "../../resources/partials/footer--default.html" ?>
 </html>
+<?php else : ?>
+
+<!DOCTYPE html>
+<!--html sino ha iniciado sesion-->
+<html>
+
+<body>
+    <script>
+        setTimeout(alertFunc, 1000);
+
+        function alertFunc() {
+            location.replace("../login");
+        }
+    </script>
+</body>
+
+</html>
+
+<?php endif; ?>

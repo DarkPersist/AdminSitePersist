@@ -1,6 +1,15 @@
 <?php
+include '../../server/connection/conexion.php';
+session_start();
+if (isset($_SESSION['id'])) {
+    $GLOBALS['icon'] = 'success';
+    $GLOBALS['title'] = 'Éxito';
+    $GLOBALS['text'] = 'Ya has inciado sesión';
+    $active = false;
+}
+
 if (!empty($_POST['email']) && !empty($_POST['password'])) {
-    if ($datos = mysqli_query($conexion, 'SELECT u.id as id,u.mail as email, s.password as password FROM usuarios u inner join seguridad s on u.id=s.user where u.mail="' . $_POST['email'] . '"')) {
+    if ($datos = mysqli_query($conexion, 'SELECT * FROM administradores where mail="' . $_POST['email'] . '"')) {
         $usuarios = mysqli_fetch_array($datos); /*Datos almacenado en Array*/
         if (is_array($usuarios)) {
             if ($_POST['email'] == $usuarios['email']) {
@@ -9,7 +18,6 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
                     $GLOBALS['icon'] = 'success';
                     $GLOBALS['title'] = 'Éxito';
                     $GLOBALS['text'] = 'Se ha iniciado sesión correctamente';
-                    dataentry($conexion, $usuarios['id']);
                 } else {
                     $GLOBALS['icon'] = 'error';
                     $GLOBALS['title'] = 'Error';

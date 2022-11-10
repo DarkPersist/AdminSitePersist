@@ -46,7 +46,7 @@
     <!---Login-->
     <div class="bg_img">
         <div class="content">
-            <header>Login</header>
+            <header>Iniciar sesión</header>
             <form action="#">
                 <div class="field">
                     <span class="fa fa-user"></span>

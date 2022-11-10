@@ -50,7 +50,7 @@
             <form action="#">
                 <div class="field">
                     <span class="fa fa-user"></span>
-                        <input type="text" required placeholder="Ingrese Usuario" />
+                        <input type="text" required placeholder="Ingrese usuario" />
                 </div>
                 <div class="field space">
                     <span class="fa fa-lock"></span>

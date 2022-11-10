@@ -91,7 +91,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
     <div class="bg_img">
         <div class="content">
             <header>Inicio de sesión</header>
-            <form action="#">
+            <form action="" method="POST">
                 <div class="field">
                     <span class="fa fa-user"></span>
                     <input type="text" name="email" required placeholder="Ingrese su correo" />

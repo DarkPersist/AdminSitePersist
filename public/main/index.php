@@ -8,7 +8,6 @@ include '../../server/security/seguridad.php';
 
     <head>
         <?php include "../resources/assets/meta.html" ?>
-
     </head>
 
     <body>

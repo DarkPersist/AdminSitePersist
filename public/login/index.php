@@ -9,10 +9,10 @@ if (isset($_SESSION['id'])) {
 }
 
 if (!empty($_POST['email']) && !empty($_POST['password'])) {
-    if ($datos = mysqli_query($conexion, 'SELECT * FROM administradores where mail="' . $_POST['email'] . '"')) {
+    if ($datos = mysqli_query($conx, 'SELECT * FROM administradores where mail="' . $_POST['email'] . '"')) {
         $usuarios = mysqli_fetch_array($datos); /*Datos almacenado en Array*/
         if (is_array($usuarios)) {
-            if ($_POST['email'] == $usuarios['email']) {
+            if ($_POST['email'] == $usuarios['mail']) {
                 if (password_verify($_POST['password'], $usuarios['password'])) {
                     $_SESSION['id'] = $usuarios['id']; /*Pasar datos a el sistema de seguridad*/
                     $GLOBALS['icon'] = 'success';
@@ -91,7 +91,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
     <div class="bg_img">
         <div class="content">
             <header>Inicio de sesión</header>
-            <form action="" method="POST">
+            <form method="post">
                 <div class="field">
                     <span class="fa fa-user"></span>
                     <input type="text" name="email" required placeholder="Ingrese su correo" />

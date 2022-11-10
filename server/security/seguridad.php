@@ -3,7 +3,7 @@
 
     if (isset($_SESSION['id'])) {
         try {
-            $query="SELECT * FROM usuarios WHERE id = ".$_SESSION['id'];
+            $query="SELECT * FROM administradores WHERE id = ".$_SESSION['id'];
             $data = mysqli_query($conx, $query);
             $result = mysqli_fetch_array($data);
             $user = null;
@@ -15,4 +15,4 @@
             die('No se ha podido comprobar la sesion iniciada: ' . $fail->getMessage());
         }
     }
-?>.
+?>
